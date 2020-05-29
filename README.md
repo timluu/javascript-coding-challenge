@@ -1,68 +1,77 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Context
 
-## Available Scripts
+Your client has a database full of users and their photo albums. They're hiring you to build a website where they can search users and view the photos within the albums associated with users. 
 
-In the project directory, you can run:
+This app needs to be able to fetch user data from their [API](https://jsonplaceholder.typicode.com/) and allow the client to view their users' photos.
 
-### `yarn start`
+## Product Requirements
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As a user:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [ ] I want to see a list of users, their company, and their company catchphrase.
+- [ ] I want to search by the user's name.
+- [ ] For each search I want to be able to:
+  - [ ] search without worrying about case sensitivity
+  - [ ] search with partial name matches e.g. searching "Anne" will return "Leanne" and "Anne"
+- [ ] I want to see a "No Result" state when my search does not find any users.
+- [ ] I want to view all the photo's of a user's album.
+- [ ] I want to see the first 18 photos, with the ability to paginate (18 photos per page)
+- [ ] I want to see the title of the photos and the album title the photo is associated with.
 
-### `yarn test`
+## Your Goal
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Create a React application that satisfies all product requirements for your client above. Please list any assumptions you took while building your application. Feel free to add any nice-to-have requirements or styling. Feel free to list what you added!
 
-### `yarn build`
+To achieve this you will need to utilize the fake online REST API service https://jsonplaceholder.typicode.com/ to fetch the appropriate JSON content. Please use the /users, /albums, and /photos endpoints to build the requirements above. Take note of the available nested routes and relationships between these entities at the bottom of their [guide](https://jsonplaceholder.typicode.com/guide.html).  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For the layout of each page, please refer to the provided wireframes:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [Homepage](./wireframes/homepage.png)
+- [Empty state](./wireframes/no-result-state.png)
+- [User's Photos Page](./wireframes/users-photos.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You are provided a boilerplate application built with create-react-app. We encourage you to use your favorite packages and tools to build a solid React application, but try to keep it as simple as possible!
 
-### `yarn eject`
+You can assume that you do not have to support legacy browsers. Feel free to use modern features such as **fetch** or **flexbox**. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## How to Run
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Best developed with Node v12.13.0 and NPM v6.14.5.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Once you have Node and NPM installed on your machine run the following commands to get started
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Fork and clone the GitHub repository onto your local environment
 
-## Learn More
+    ```
+    git clone git@github.com:${YOUR_USER_NAME}/javascript-coding-challenge.git
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Navigate to `javascript-coding-challenge` root folder in your terminal and install npm modules.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```
+    npm install
+    ```
 
-### Code Splitting
+3. Run local development environment in the root folder.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+    ```
+    npm start
+    ```
+   
+4. Access the application on `http://localhost:3000`
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Instructions
 
-### Making a Progressive Web App
+- Fork this repository.
+- Build a performant, clean and well-structured solution.
+- Make the app public. No need to deploy the application. Simply running it locally will suffice.
+- Remember to have fun with it and try to commit as early and as often as possible!
+- When you're finished please download a ZIP of the project using the Github GUI and send us an email with the attachment to notify us.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+We recommend taking no more than 3 to 4 hours to complete this exercise. Best of luck and happy coding!
 
-### Advanced Configuration
+## Assumptions
+Please list any assumptions or extra requirements you added to the application while developing below.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- e.g. the JSONPlaceHolder Fake Online API service only allows me to query user's by user ID.
