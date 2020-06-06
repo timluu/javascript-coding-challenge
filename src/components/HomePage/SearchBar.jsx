@@ -1,8 +1,22 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+    const {
+        searchTerm,
+        onChange,
+        onSubmit,
+    } = props;
+
     return (
-        <div>{"Search Area"}</div>
+        <form onSubmit={onSubmit}>
+            <input 
+                type="text" 
+                value={searchTerm}
+                name="searchText"
+                onChange={onChange} 
+            />
+            <input type="submit" value="Search" />
+        </form>
     )
 };
 
