@@ -3,9 +3,9 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
 } from 'react-router-dom';
-import Home from './components/HomePage/Home';
+import HomePage from './components/HomePage/index';
+import UserPage from './components/UserPage/index';
 import './App.css';
 
 
@@ -14,7 +14,12 @@ class App extends React.Component {
         return (
             <Router>
                 <div className="App">
-                    <Home />
+                    <Switch>
+                        <Route path='/user/:id' component={UserPage} />
+                        <Route path='/'>
+                            <HomePage />
+                        </Route>
+                    </Switch>
                 </div>
             </Router>
         )

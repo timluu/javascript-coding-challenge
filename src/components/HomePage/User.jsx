@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const User = (props) => {
     const { users } = props;
@@ -19,11 +20,11 @@ const User = (props) => {
         <div>
             {users.map(user => {
                 return (
-                    <div>
+                    <Link to={`/user/${user.id}`}>
                         <div>{user.name}</div>
                         <div>{user.company.name}</div>
                         <div>{user.company.catchPhrase}</div>
-                    </div>
+                    </Link>
                 )
             })}
         </div>
