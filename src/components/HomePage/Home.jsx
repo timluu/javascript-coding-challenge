@@ -8,7 +8,7 @@ class Home extends React.Component {
         super(props)
         this.state = {
             searchTerm: '',
-            users: [],
+            users: null,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -22,9 +22,24 @@ class Home extends React.Component {
     }
 
     handleSubmit(event) {
+        const { searchTerm } = this.state;
+        const keyword = searchTerm.toLowerCase();
         event.preventDefault()
-        console.log('The submit button has been clicked.');
-        console.log(`The search term is ${this.state.searchTerm}`);
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(users => {
+                users = this.filterUsers(users, keyword);
+                this.setState({ users });
+            })
+        // console.log('The submit button has been clicked.');
+        // console.log(`The search term is ${this.state.searchTerm}`);
+    }
+
+    filterUsers(users, keyword) {
+        return users.filter(user => {
+            const name = user.name.toLowerCase()
+            return name.includes(keyword);
+        })
     }
 
     render() {

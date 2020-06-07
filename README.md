@@ -75,6 +75,7 @@ We recommend taking no more than 3 to 4 hours to complete this exercise. Best of
 Please list any assumptions or extra requirements you added to the application while developing below.
 
 - e.g. the JSONPlaceHolder Fake Online API service only allows me to query user's by user ID.
-- I assume that we want to fetch JSONPlaceHolder Fake Online API data within the server side
+- I assume that we want to fetch JSONPlaceHolder Fake Online API data within the server side (start out with just client side for now)
 - I assume that we want a functionality that will allow the user to go back to the home page.
 - I assume that the url needs to change depending on what part of the site the user is browsing.
+- I assume that the homepage needs an initial state before any search terms have been input.
