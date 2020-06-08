@@ -156,7 +156,7 @@ class UserPage extends React.Component {
                         albums={albums}
                         onAlbumClick={this.handleAlbumClick}
                     /> :
-                    <div className='UserPage-photos'>
+                    <div>
                         <PhotoList 
                             albumTitle={albumTitle}
                             photos={photos}

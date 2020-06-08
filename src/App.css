@@ -82,18 +82,3 @@
 .UserCompany, .UserPhrase {
     text-align: right;
 }
-
-/* [class^='Photo-'] {
-    grid-column: 3;
-    grid-row: 3;
-} */
-
-/* .Photo {
-    flex-grow: 3;
-    flex-shrink: 3;
-} */
-
-/* .UserPage-body {
-    display: flex;
-    justify-content: center;
-} */
