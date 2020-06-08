@@ -75,6 +75,7 @@ We recommend taking no more than 3 to 4 hours to complete this exercise. Best of
 Please list any assumptions or extra requirements you added to the application while developing below.
 
 - e.g. the JSONPlaceHolder Fake Online API service only allows me to query user's by user ID.
+- I assume that, according to the product requirements, we are mainly concerned with viewing the entirety of an album, rather than viewing each single photo in depth.
 - I assume that we want to fetch JSONPlaceHolder Fake Online API data within the client side.
 - I assume that we want a functionality that will allow the user to go back to the home page.
 - I assume that the url needs basic changing depending on what part of the site the user is browsing.
@@ -84,3 +85,4 @@ Please list any assumptions or extra requirements you added to the application w
 - I assume that a user's page has an initial navigation that allows someone to choose which photos/albums they want to view.
 - I assume that a user will want to return to the album page from the photos page.
 - I assume that the albums don't need a thumbnail photo, but the photos do.
+- I assume that for this version, we will not take into consideration when a user hits the refresh button on the browser (under the assumption that the user will be navigating the site only through the links/buttons presented). As such, the need to persist local storage will not be required for this challenge.
