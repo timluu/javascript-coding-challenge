@@ -3,7 +3,7 @@ import AlbumList from './AlbumList';
 import Pagination from './Pagination';
 import PhotoList from './PhotoList';
 import Title from './Title';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import '../../App.css';
 
 class UserPage extends React.Component {
@@ -31,6 +31,7 @@ class UserPage extends React.Component {
 
     componentDidMount() {
         const { userId } = this.state;
+        
         fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
             .then(response => response.json())
             .then(
@@ -118,6 +119,7 @@ class UserPage extends React.Component {
 
     render() {
         const { 
+            albumId,
             albums,
             albumTitle,
             error,
@@ -127,6 +129,7 @@ class UserPage extends React.Component {
             numOfPhotos,
             pageNumber,
             photos,
+            userId,
         } = this.state;
         
         if(error) {
@@ -149,25 +152,38 @@ class UserPage extends React.Component {
                 <Title isAlbumPage={isAlbumPage} name={name}/>
                 <div className='Navigation'>
                     <Link to='/'>Back to Home</Link>
-                    {isAlbumPage ? null : <div onClick={this.resetToAlbumPage}>Back to Albums</div>}
+                    {isAlbumPage ? 
+                        null : 
+                        <Link
+                            to={`/user/${name}_${userId}`}
+                            onClick={this.resetToAlbumPage}
+                        >
+                            Back to Albums
+                        </Link>
+                    }
                 </div>
-                {isAlbumPage ?
+                <Route exact path='/user/:id'>
                     <AlbumList 
                         albums={albums}
+                        name={name}
                         onAlbumClick={this.handleAlbumClick}
-                    /> :
-                    <div>
-                        <PhotoList 
-                            albumTitle={albumTitle}
-                            photos={photos}
-                        />
-                        <Pagination 
-                            numOfPhotos={numOfPhotos}
-                            onPageClick={this.handlePageClick}
-                            pageNumber={pageNumber}
-                        />
-                    </div>
-                }
+                        userId={userId}
+                    />
+                </Route>
+                <Route path='/user/:id/:album/:page'>
+                    <PhotoList 
+                        albumTitle={albumTitle}
+                        photos={photos}
+                    />
+                    <Pagination
+                        albumId={albumId}
+                        name={name}
+                        numOfPhotos={numOfPhotos}
+                        onPageClick={this.handlePageClick}
+                        pageNumber={pageNumber}
+                        userId={userId}
+                    />
+                </Route>
             </div>
         )
     }

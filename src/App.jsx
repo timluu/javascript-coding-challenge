@@ -15,7 +15,7 @@ class App extends React.Component {
             <Router>
                 <div className="App">
                     <Switch>
-                        <Route path='/user/:id' component={UserPage} />
+                        <Route path='/user/:id/:album?/:pageNumber?' component={UserPage} />
                         <Route path='/' component={HomePage} />
                     </Switch>
                 </div>
