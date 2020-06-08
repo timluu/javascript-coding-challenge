@@ -12,6 +12,7 @@ class UserPage extends React.Component {
             albums: [],
             albumId: null,
             albumTitle: '',
+            error: null,
             isAlbumPage: true,
             isLoading: true,
             name: identity[0],
@@ -29,12 +30,20 @@ class UserPage extends React.Component {
         const { userId } = this.state;
         fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
             .then(response => response.json())
-            .then(albums => {
-                this.setState({ 
-                    albums,
-                    isLoading: false,
-                })
-            });
+            .then(
+                (albums) => {
+                    this.setState({ 
+                        albums,
+                        isLoading: false,
+                    })
+                },
+                (error) => {
+                    this.setState({
+                        error,
+                        isLoading: false,
+                    })
+                }
+            )
     }
     
     handleAlbumClick(event) {
@@ -42,17 +51,26 @@ class UserPage extends React.Component {
         this.setState({ isLoading: true }, () => {
             fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${id}`)
                 .then(response => response.json())
-                .then(photos => {
-                    this.setState({
-                        albumId: id, 
-                        albumTitle: title,
-                        isAlbumPage: false,
-                        isLoading: false,
-                        numOfPhotos: photos.length,
-                        pageNumber: 1,
-                        photos: photos.slice(0, 18),
-                    })
-                });
+                .then(
+                    (photos) => {
+                        console.log(photos);
+                        this.setState({
+                            albumId: id, 
+                            albumTitle: title,
+                            isAlbumPage: false,
+                            isLoading: false,
+                            numOfPhotos: photos.length,
+                            pageNumber: 1,
+                            photos: photos.slice(0, 18),
+                        })
+                    },
+                    (error) => {
+                        this.setState({
+                            error,
+                            isLoading: false,
+                        })
+                    }
+                );
         });
     }
 
@@ -63,13 +81,21 @@ class UserPage extends React.Component {
         this.setState({ isLoading: true }, () => {
             fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}&_page=${pageNumber+value}&_limit=18`)
                 .then(response => response.json())
-                .then(photos => {
-                    this.setState({
-                        isLoading: false,
-                        pageNumber: pageNumber + value,
-                        photos,
-                    })
-                });
+                .then(
+                    (photos) => {
+                        this.setState({
+                            isLoading: false,
+                            pageNumber: pageNumber + value,
+                            photos,
+                        })
+                    },
+                    (error) => {
+                        this.setState({
+                            error,
+                            isLoading: false,
+                        })
+                    }
+                );
         });
     }
 
@@ -77,6 +103,7 @@ class UserPage extends React.Component {
         const { 
             albums,
             albumTitle,
+            error,
             isAlbumPage,
             isLoading,
             name,
@@ -85,6 +112,12 @@ class UserPage extends React.Component {
             photos,
         } = this.state;
         
+        if(error) {
+            return (
+                <div>{`Error: ${error.message}`}</div>
+            )
+        }
+
         if(isLoading) {
             return(
                 <div>
