@@ -138,7 +138,7 @@ class UserPage extends React.Component {
         if(isLoading) {
             return(
                 <div>
-                    <Title name={name}/>
+                    <Title isAlbumPage={isAlbumPage} name={name}/>
                     <div>{'Loading...'}</div>
                 </div>
             )
