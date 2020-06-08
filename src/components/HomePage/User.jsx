@@ -20,7 +20,7 @@ const User = (props) => {
         <div>
             {users.map(user => {
                 return (
-                    <Link to={`/user/${user.id}`}>
+                    <Link to={`/user/${user.name}_${user.id}`}>
                         <div>{user.name}</div>
                         <div>{user.company.name}</div>
                         <div>{user.company.catchPhrase}</div>
