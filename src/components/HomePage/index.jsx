@@ -43,7 +43,7 @@ class HomePage extends React.Component {
     render() {
         const { searchTerm, users } = this.state;
         return (
-            <div>
+            <div className='HomePage'>
                 <Title />
                 <SearchBar
                     searchTerm={searchTerm} 

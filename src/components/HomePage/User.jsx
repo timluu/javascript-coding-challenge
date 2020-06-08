@@ -7,23 +7,23 @@ const User = (props) => {
 
     if(users === null) {
         return (
-            <div>{"No input has been searched yet."}</div>
+            <div className='NoItems'>{"No input has been searched yet."}</div>
         )
     }
 
     if(users.length === 0) {
         return (
-            <div>{"No results."}</div>
+            <div className='NoItems'>{"No results."}</div>
         )
     }
     return (
-        <div>
+        <div className='UserListings'>
             {users.map(user => {
                 return (
-                    <Link to={`/user/${user.name}_${user.id}`}>
-                        <div>{user.name}</div>
-                        <div>{user.company.name}</div>
-                        <div>{user.company.catchPhrase}</div>
+                    <Link className='UserItem' to={`/user/${user.name}_${user.id}`}>
+                        <div className='UserName'>{user.name}</div>
+                        <div className='UserCompany'>{user.company.name}</div>
+                        <div className='UserPhrase'>{user.company.catchPhrase}</div>
                     </Link>
                 )
             })}

@@ -1,3 +1,12 @@
+[class^='Album-'] {
+    border: 1px solid black;
+    padding: 50px;
+}
+
+[class^='Photo-'] {
+    padding: 10px;
+}
+
 .Albums, .Photos {
     display: grid;
     grid-template-columns: 500px 500px 500px;
@@ -5,6 +14,7 @@
     row-gap: 15px;
     margin: 15px;
 }
+
 
 .App {
   text-align: center;
@@ -23,19 +33,65 @@
   color: white;
 }
 
+.HomePage, .UserListings {
+    display: grid;
+    grid-template-columns: 500px;
+}
+
 .Navigation {
     display: grid;
     grid-template-columns: auto auto;
     margin: 15px;
 }
 
+.Navigation > * {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.NoItems {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .Search {
     width: 100%;
+}
+
+.SearchBar {
+    width: 70%;
+    font-size: 24px;
+}
+
+.SearchButton {
+    background-color: lightgray;
+    font-size: 24px;
+    padding: 2px;
+    margin: 5px;
+    width: 25%;
 }
 
 .Title {
     font-size: 48px;
     margin: 15px;
+}
+
+.UserItem {
+    font-size: 16px;
+    background-color: gray;
+    border: 2px solid black;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.UserName {
+    text-align: left;
+}
+
+.UserCompany, .UserPhrase {
+    text-align: right;
 }
 
 /* [class^='Photo-'] {

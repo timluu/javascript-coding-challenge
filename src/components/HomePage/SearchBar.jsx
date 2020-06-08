@@ -8,14 +8,15 @@ const SearchBar = (props) => {
     } = props;
 
     return (
-        <form onSubmit={onSubmit}>
+        <form className='Search' onSubmit={onSubmit}>
             <input 
+                className='SearchBar'
                 type="text" 
                 value={searchTerm}
                 name="searchText"
                 onChange={onChange} 
             />
-            <input type="submit" value="Search" />
+            <input className='SearchButton' type="submit" value="Search" />
         </form>
     )
 };
