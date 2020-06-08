@@ -1,9 +1,22 @@
 import React from 'react';
 
-const AlbumList = () => {
+const AlbumList = (props) => {
+    const {
+        albums,
+        onAlbumClick,
+    } = props;
     return (
         <div>
-            {"AlbumList"}
+            {albums.map(album => {
+                return (
+                    <div
+                        id={album.id}
+                        onClick={onAlbumClick}
+                    >
+                        {album.title}
+                    </div>
+                )
+            })}
         </div>
     )
 }

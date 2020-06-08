@@ -31,8 +31,6 @@ class HomePage extends React.Component {
                 users = this.filterUsers(users, keyword);
                 this.setState({ users });
             })
-        // console.log('The submit button has been clicked.');
-        // console.log(`The search term is ${this.state.searchTerm}`);
     }
 
     filterUsers(users, keyword) {
