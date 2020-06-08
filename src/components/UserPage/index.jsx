@@ -146,7 +146,7 @@ class UserPage extends React.Component {
 
         return (
             <div>
-                <Title name={name}/>
+                <Title isAlbumPage={isAlbumPage} name={name}/>
                 <div className='Navigation'>
                     <Link to='/'>Back to Home</Link>
                     {isAlbumPage ? null : <div onClick={this.resetToAlbumPage}>Back to Albums</div>}

@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Title = (props) => {
-    const { name } = props;
+    const { isAlbumPage, name } = props;
+    const section = isAlbumPage ? 'Albums' : 'Photos';
     return (
         <div className='Title'>
-            {`${name}'s Photos`}
+            {`${name}'s ${section}`}
         </div>
     )
 };

@@ -16,9 +16,7 @@ class App extends React.Component {
                 <div className="App">
                     <Switch>
                         <Route path='/user/:id' component={UserPage} />
-                        <Route path='/'>
-                            <HomePage />
-                        </Route>
+                        <Route path='/' component={HomePage} />
                     </Switch>
                 </div>
             </Router>
@@ -27,29 +25,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-//   const [data, setData] = useState(null);
-//   const callAPI = async () => {
-//     return Promise.resolve("Hello from Steezy 👋");
-//   };
-
-//   useEffect(() => {
-//     async function fetchData() {
-//       try {
-//         const response = await callAPI();
-//         setData(response);
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     }
-//     fetchData();
-//   });
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>{data}</p>
-//       </header>
-//     </div>
-//   );
