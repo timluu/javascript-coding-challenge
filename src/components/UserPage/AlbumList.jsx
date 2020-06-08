@@ -10,7 +10,8 @@ const AlbumList = (props) => {
             {albums.map(album => {
                 return (
                     <div
-                        id={album.id}
+                        data-id={album.id}
+                        data-title={album.title}
                         onClick={onAlbumClick}
                     >
                         {album.title}

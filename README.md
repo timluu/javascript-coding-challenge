@@ -82,4 +82,3 @@ Please list any assumptions or extra requirements you added to the application w
 - I assume that when searching for users, I will need to fetch all users and then filter based on search terms after retrieving the response, as the JSONPlaceHolder Fake Online API only allows for basic filtering.
 - I assume using the above mentioned basic filtering will be fine when retrieving albums and photos.
 - I assume that a user's page has an initial navigation that allows someone to choose which photos/albums they want to view.
-- I assume that I can use an album id of 0 to represent an album that contains all of the user's photos, as the JSONPlaceHolder album objects are 1-indexed.
