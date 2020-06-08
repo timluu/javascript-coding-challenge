@@ -3,6 +3,7 @@ import AlbumList from './AlbumList';
 import Pagination from './Pagination';
 import PhotoList from './PhotoList';
 import Title from './Title';
+import { Link } from 'react-router-dom';
 
 class UserPage extends React.Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class UserPage extends React.Component {
 
         this.handleAlbumClick = this.handleAlbumClick.bind(this);
         this.handlePageClick = this.handlePageClick.bind(this);
+        this.resetToAlbumPage = this.resetToAlbumPage.bind(this);
     }
 
     componentDidMount() {
@@ -99,6 +101,21 @@ class UserPage extends React.Component {
         });
     }
 
+    resetToAlbumPage(event) {
+        this.setState({ isLoading: true }, () => {
+            this.setState({
+                albumId: null,
+                albumTitle: '',
+                error: null,
+                isAlbumPage: true,
+                isLoading: false,
+                numOfPhotos: null,
+                pageNumber: null,
+                photos: [],
+            })
+        })
+    }
+
     render() {
         const { 
             albums,
@@ -130,12 +147,14 @@ class UserPage extends React.Component {
         return (
             <div>
                 <Title name={name}/>
+                <Link to='/'>Back to Home</Link>
                 {isAlbumPage ?
                     <AlbumList 
                         albums={albums}
                         onAlbumClick={this.handleAlbumClick}
                     /> :
                     <div>
+                        <div onClick={this.resetToAlbumPage}>Back to Albums</div>
                         <PhotoList 
                             albumTitle={albumTitle}
                             photos={photos}
