@@ -6,10 +6,11 @@ const AlbumList = (props) => {
         onAlbumClick,
     } = props;
     return (
-        <div>
-            {albums.map(album => {
+        <div className='Albums'>
+            {albums.map((album, i) => {
                 return (
                     <div
+                        className={`Album-${i}`}
                         data-id={album.id}
                         data-title={album.title}
                         onClick={onAlbumClick}

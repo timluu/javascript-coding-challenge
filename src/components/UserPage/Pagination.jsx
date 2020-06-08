@@ -8,24 +8,24 @@ const Pagination = (props) => {
     } = props;
 
     return (
-        <div>
+        <div className='Navigation'>
             {pageNumber !== 1 ?
                 <div 
-                    data-id={"back"}
+                    data-id={'back'}
                     onClick={onPageClick}
                 >
-                    {"<<<"}
+                    {'< BACK'}
                 </div>
-                : null
+                : <div></div>
             }
             {(pageNumber * 18) < numOfPhotos ?
                 <div 
-                    data-id={"forward"}
+                    data-id={'forward'}
                     onClick={onPageClick}
                 >
-                    {">>>"}
+                    {'FORWARD >'}
                 </div>
-                : null
+                : <div></div>
             }
         </div>
     )

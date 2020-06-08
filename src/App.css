@@ -1,5 +1,15 @@
+.Albums, .Photos {
+    display: grid;
+    grid-template-columns: 500px 500px 500px;
+    column-gap: 15px;
+    row-gap: 15px;
+    margin: 15px;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .App-header {
@@ -12,3 +22,33 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.Navigation {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 15px;
+}
+
+.Search {
+    width: 100%;
+}
+
+.Title {
+    font-size: 48px;
+    margin: 15px;
+}
+
+/* [class^='Photo-'] {
+    grid-column: 3;
+    grid-row: 3;
+} */
+
+/* .Photo {
+    flex-grow: 3;
+    flex-shrink: 3;
+} */
+
+/* .UserPage-body {
+    display: flex;
+    justify-content: center;
+} */

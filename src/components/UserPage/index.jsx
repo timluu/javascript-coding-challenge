@@ -4,6 +4,7 @@ import Pagination from './Pagination';
 import PhotoList from './PhotoList';
 import Title from './Title';
 import { Link } from 'react-router-dom';
+import '../../App.css';
 
 class UserPage extends React.Component {
     constructor(props) {
@@ -55,7 +56,6 @@ class UserPage extends React.Component {
                 .then(response => response.json())
                 .then(
                     (photos) => {
-                        console.log(photos);
                         this.setState({
                             albumId: id, 
                             albumTitle: title,
@@ -147,14 +147,16 @@ class UserPage extends React.Component {
         return (
             <div>
                 <Title name={name}/>
-                <Link to='/'>Back to Home</Link>
+                <div className='Navigation'>
+                    <Link to='/'>Back to Home</Link>
+                    {isAlbumPage ? null : <div onClick={this.resetToAlbumPage}>Back to Albums</div>}
+                </div>
                 {isAlbumPage ?
                     <AlbumList 
                         albums={albums}
                         onAlbumClick={this.handleAlbumClick}
                     /> :
-                    <div>
-                        <div onClick={this.resetToAlbumPage}>Back to Albums</div>
+                    <div className='UserPage-photos'>
                         <PhotoList 
                             albumTitle={albumTitle}
                             photos={photos}
